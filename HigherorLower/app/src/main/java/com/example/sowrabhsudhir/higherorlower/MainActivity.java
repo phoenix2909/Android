@@ -10,13 +10,13 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
+    int n;
+
     public void buttonClicked (View view){
 
         EditText numberInput = (EditText) findViewById(R.id.numberInput);
 
-        Random random = new Random();
 
-        int n = random.nextInt(20)+1;
 
         if (Integer.valueOf(numberInput.getText().toString()) > n)
         {
@@ -24,7 +24,10 @@ public class MainActivity extends AppCompatActivity {
         }else if (Integer.valueOf((numberInput.getText().toString())) < n)
             Toast.makeText(this, "Higher!", Toast.LENGTH_SHORT).show();
         else
-            Toast.makeText(MainActivity.this,"That's right! Try Again!",Toast.LENGTH_SHORT).show();
+        {Toast.makeText(MainActivity.this,"That's right! Try Again!",Toast.LENGTH_SHORT).show();
+            Random random = new Random();
+
+            n = random.nextInt(20)+1;}
 
     }
 
@@ -32,5 +35,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Random random = new Random();
+
+         n = random.nextInt(20)+1;
     }
 }
