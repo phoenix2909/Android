@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+
+
 public class MainActivity extends AppCompatActivity {
 
     private Button login;
@@ -27,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
                valid(email.getText().toString(),password.getText().toString());
             }
         });
+
 
     }
 

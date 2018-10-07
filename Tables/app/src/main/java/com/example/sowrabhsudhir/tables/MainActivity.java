@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         final SeekBar tableSeekBar = (SeekBar) findViewById(R.id.tableSeekBar);
-        numberList = (ListView) findViewById(R.id.numberList);
+        numberList = findViewById(R.id.numberList);
 
         tableSeekBar.setMax(20);
         tableSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
