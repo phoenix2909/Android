@@ -15,6 +15,7 @@ public class infopage extends AppCompatActivity implements LocationListener {
     protected LocationManager locationManager;
     protected Context context;
     TextView txtLat;
+    protected LocationListener locationListener;
 
 
 
@@ -22,35 +23,32 @@ public class infopage extends AppCompatActivity implements LocationListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_infopage);
-        try {
-            locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000, 0, this);
-        }
-        catch(SecurityException e) {
-            e.printStackTrace();
-        }
+        locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
         txtLat = (TextView) findViewById(R.id.txtLat);
+        locationListener = new LocationListener() {
+            @Override
+            public void onLocationChanged(Location location) {
+                Log.i("Location",location.toString());
+            }
+
+            @Override
+            public void onStatusChanged(String s, int i, Bundle bundle) {
+
+            }
+
+            @Override
+            public void onProviderEnabled(String s) {
+
+            }
+
+            @Override
+            public void onProviderDisabled(String s) {
+
+            }
+        }
+
 
     }
 
-    @Override
-    public void onLocationChanged(Location location) {
-        txtLat.setText("Current location: "+location.getLatitude()+","+location.getLongitude());
-    }
-
-    @Override
-    public void onProviderDisabled(String provider) {
-        Toast.makeText(this, "Please Enable GPS and Internet", Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void onStatusChanged(String provider, int status, Bundle extras) {
-
-    }
-
-    @Override
-    public void onProviderEnabled(String provider) {
-
-    }
 
 }
