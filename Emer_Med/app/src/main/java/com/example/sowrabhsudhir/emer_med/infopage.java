@@ -1,53 +1,94 @@
 package com.example.sowrabhsudhir.emer_med;
 
+import android.Manifest;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.content.Context;
-import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
-import android.util.Log;
+import android.telephony.SmsManager;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class infopage extends AppCompatActivity implements LocationListener {
 
-    protected LocationManager locationManager;
-    protected Context context;
-    TextView txtLat;
-    protected LocationListener locationListener;
-
+public class infopage extends AppCompatActivity {
+    private TextView txtLat;
+    private final int PERMISSION_ALL = 1;
+    private GPSTracker gps;
+    private String[] PERMISSIONS = {
+            Manifest.permission.READ_SMS,
+            Manifest.permission.SEND_SMS,
+            Manifest.permission.RECEIVE_SMS,
+            Manifest.permission.ACCESS_FINE_LOCATION,
+            Manifest.permission.ACCESS_COARSE_LOCATION
+    };
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_infopage);
-        locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
-        txtLat = (TextView) findViewById(R.id.txtLat);
-        locationListener = new LocationListener() {
-            @Override
-            public void onLocationChanged(Location location) {
-                Log.i("Location",location.toString());
-            }
 
-            @Override
-            public void onStatusChanged(String s, int i, Bundle bundle) {
+        gps = new GPSTracker(getApplicationContext());
+        txtLat = findViewById(R.id.txtLat);
 
-            }
+        if (!hasPermissions(this, PERMISSIONS)) {
+            ActivityCompat.requestPermissions(this, PERMISSIONS, PERMISSION_ALL);
+        } else {
+            final String slatitude = gps.getStringLatitude();
+            final String slongitude = gps.getStringLongtitude();
+            txtLat.setText("My live location is: "+slatitude + ", " + slongitude);
+            Button helpButton = (Button) findViewById(R.id.helpButton);
+            helpButton.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    sendSMS("7010986682", "Hi! I'm in DANGER! Here are my coordinates: https://www.google.com/maps/?q=" + slatitude + "," + slongitude);
+                    Toast.makeText(infopage.this, "SMS Sent!", Toast.LENGTH_SHORT).show();
 
-            @Override
-            public void onProviderEnabled(String s) {
+                }
+            });
+        }
+    }
 
-            }
+    private void sendSMS(String phoneNumber, String message) {
+        SmsManager sms = SmsManager.getDefault();
+        sms.sendTextMessage(phoneNumber, null, message, null, null);
+    }
 
-            @Override
-            public void onProviderDisabled(String s) {
-
+    public static boolean hasPermissions(Context context, String... permissions) {
+        if (context != null && permissions != null) {
+            for (String permission : permissions) {
+                if (ActivityCompat.checkSelfPermission(context, permission) != PackageManager.PERMISSION_GRANTED) {
+                    return false;
+                }
             }
         }
+        return true;
+    }
 
-
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String permissionsList[], int[] grantResults) {
+        switch (requestCode) {
+            case PERMISSION_ALL: {
+                if (!hasPermissions(this, PERMISSIONS)) {
+                    Toast.makeText(infopage.this, "All the permissions are mandatory.", Toast.LENGTH_SHORT).show();
+                } else {
+                    final String slatitude = gps.getStringLatitude();
+                    final String slongitude = gps.getStringLongtitude();
+                    txtLat.setText(slatitude + ", " + slongitude);
+                    Button helpButton = (Button) findViewById(R.id.helpButton);
+                    helpButton.setOnClickListener(new View.OnClickListener() {
+                        public void onClick(View v) {
+                            Toast.makeText(infopage.this, "SMS Sent!", Toast.LENGTH_SHORT).show();
+                            sendSMS("7338761619", "Hi! I'm in DANGER! Here are my coordinates: https://www.google.com/maps/?q=" + slatitude + "," + slongitude);
+                        }
+                    });
+                }
+            }
+            default:
+                return;
+        }
     }
 
 

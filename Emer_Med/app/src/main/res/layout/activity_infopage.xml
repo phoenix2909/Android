@@ -18,6 +18,7 @@
             android:id="@+id/nameText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
             android:layout_weight="1"
             android:text="Full Name" />
 
@@ -41,6 +42,7 @@
             android:id="@+id/emailText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
             android:layout_weight="1"
             android:text="Email ID" />
 
@@ -64,6 +66,7 @@
             android:id="@+id/contactText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
             android:layout_weight="1"
             android:text="Emergency Contact" />
 
@@ -72,7 +75,7 @@
             android:layout_width="124dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="9865481532" />
+            android:text="7010986682" />
     </LinearLayout>
 
     <LinearLayout
@@ -87,6 +90,7 @@
             android:id="@+id/ageText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
             android:layout_weight="1"
             android:text="Age" />
 
@@ -110,6 +114,7 @@
             android:id="@+id/bgroupText"
             android:layout_width="34dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
             android:layout_weight="1"
             android:text="Blood Group" />
 
@@ -133,6 +138,7 @@
             android:id="@+id/bpText"
             android:layout_width="34dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
             android:layout_weight="1"
             android:text="Blood Pressure" />
 
@@ -155,6 +161,7 @@
             android:id="@+id/diseaseText"
             android:layout_width="34dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
             android:layout_weight="1"
             android:text="Diseases (if any)" />
 
@@ -176,8 +183,9 @@
 
         <TextView
             android:id="@+id/txtLat"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
             android:layout_weight="1"
             android:text="Location: " />
 
@@ -189,7 +197,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:text="PATIENT'S DATA"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textStyle="bold" />
 
 
@@ -204,7 +212,7 @@
         android:background="@android:color/holo_red_dark"
         android:fontFamily="sans-serif-condensed"
         android:text="Help!"
-        android:textSize="20dp" />
+        android:textSize="20sp" />
 
 
 </RelativeLayout>
