@@ -43,7 +43,7 @@ public class infopage extends AppCompatActivity {
             Button helpButton = (Button) findViewById(R.id.helpButton);
             helpButton.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                    sendSMS("7010986682", "Hi! I'm in DANGER! Here are my coordinates: https://www.google.com/maps/?q=" + slatitude + "," + slongitude);
+                    sendSMS("7010986682", "Please HELP me! I'm in an EMERGENCY! Here are my coordinates: https://www.google.com/maps/?q=" + slatitude + "," + slongitude);
                     Toast.makeText(infopage.this, "SMS Sent!", Toast.LENGTH_SHORT).show();
 
                 }
@@ -80,8 +80,8 @@ public class infopage extends AppCompatActivity {
                     Button helpButton = (Button) findViewById(R.id.helpButton);
                     helpButton.setOnClickListener(new View.OnClickListener() {
                         public void onClick(View v) {
+                            sendSMS("7010986682", "Please HELP me! I'm in an EMERGENCY! Here are my coordinates: https://www.google.com/maps/?q=" + slatitude + "," + slongitude);
                             Toast.makeText(infopage.this, "SMS Sent!", Toast.LENGTH_SHORT).show();
-                            sendSMS("7338761619", "Hi! I'm in DANGER! Here are my coordinates: https://www.google.com/maps/?q=" + slatitude + "," + slongitude);
                         }
                     });
                 }

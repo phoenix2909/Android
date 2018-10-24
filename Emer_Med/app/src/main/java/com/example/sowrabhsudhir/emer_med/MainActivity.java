@@ -9,37 +9,30 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 
-
 public class MainActivity extends AppCompatActivity {
-
     private Button login;
-    EditText email, password;
-
+    private EditText email, password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        email = (EditText)findViewById(R.id.email);
-        password = (EditText)findViewById(R.id.password);
-        login = (Button) findViewById(R.id.login);
+        email = findViewById(R.id.email);
+        password = findViewById(R.id.password);
+        login = findViewById(R.id.login);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               valid(email.getText().toString(),password.getText().toString());
+                valid(email.getText().toString(), password.getText().toString());
             }
         });
-
-
     }
 
-    public void valid(String Email, String Password)
-    {
-        if(Email.equals("admin@email.com") && Password.equals("admin"))
-        {
+    public void valid(String Email, String Password) {
+        if (Email.equals("admin@email.com") && Password.equals("admin")) {
             Intent intent = new Intent(MainActivity.this, infopage.class);
             startActivity(intent);
-        }else {
+        } else {
             Toast.makeText(MainActivity.this, "Enter a valid email address", Toast.LENGTH_LONG).show();
         }
     }
