@@ -58,7 +58,6 @@
             android:hint="Password"
             android:inputType="textPassword"
             android:textColorHint="#000" />
-        />
 
         <Button
             android:id="@+id/login"
@@ -92,6 +91,12 @@
             android:layout_marginTop="20dp"
             android:background="@null"
             android:text="Forgot password?" />
+
+        <ProgressBar
+            android:id="@+id/loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"/>
 
 
     </LinearLayout>

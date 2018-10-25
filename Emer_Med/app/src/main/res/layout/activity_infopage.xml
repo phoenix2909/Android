@@ -18,12 +18,12 @@
             android:id="@+id/nameText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:layout_weight="1"
             android:text="Full Name" />
 
         <TextView
-            android:id="@+id/nameEdit"
+            android:id="@+id/fullname"
             android:layout_width="62dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -42,12 +42,12 @@
             android:id="@+id/emailText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:layout_weight="1"
             android:text="Email ID" />
 
         <TextView
-            android:id="@+id/emailEdit"
+            android:id="@+id/email"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -66,12 +66,12 @@
             android:id="@+id/contactText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:layout_weight="1"
             android:text="Emergency Contact" />
 
         <TextView
-            android:id="@+id/contactEdit"
+            android:id="@+id/emergency"
             android:layout_width="124dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -90,12 +90,12 @@
             android:id="@+id/ageText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:layout_weight="1"
             android:text="Age" />
 
         <TextView
-            android:id="@+id/ageEdit"
+            android:id="@+id/age"
             android:layout_width="26dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -114,12 +114,12 @@
             android:id="@+id/bgroupText"
             android:layout_width="34dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:layout_weight="1"
             android:text="Blood Group" />
 
         <TextView
-            android:id="@+id/bgroupEdit"
+            android:id="@+id/bloodgroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -138,12 +138,12 @@
             android:id="@+id/bpText"
             android:layout_width="34dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:layout_weight="1"
             android:text="Blood Pressure" />
 
         <TextView
-            android:id="@+id/bpEdit"
+            android:id="@+id/bloodpressure"
             android:layout_width="37dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -161,12 +161,12 @@
             android:id="@+id/diseaseText"
             android:layout_width="34dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:layout_weight="1"
             android:text="Diseases (if any)" />
 
         <TextView
-            android:id="@+id/diseaseEdit"
+            android:id="@+id/diseases"
             android:layout_width="37dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -185,7 +185,7 @@
             android:id="@+id/txtLat"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
             android:layout_weight="1"
             android:text="Location: " />
 
@@ -202,11 +202,24 @@
 
 
     <Button
-        android:id="@+id/helpButton"
+        android:id="@+id/logout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="20dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="80dp"
+        android:background="@android:color/holo_red_dark"
+        android:fontFamily="sans-serif-condensed"
+        android:text="LOGOUT"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/helpButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="100dp"
         android:layout_marginLeft="80dp"
         android:layout_marginRight="80dp"
         android:background="@android:color/holo_red_dark"
